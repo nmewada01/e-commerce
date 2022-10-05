@@ -1,8 +1,8 @@
-### Khamaliya E-Commerce
+### Sports-K E-Commerce
 
-<h1 align="center"> E- Commerce </h1>
+<h1 align="center"> Sports-K </h1>
 
-khamaliya is a e-commerce website which offers sports based products like men's clothes and shoes and women's clothes and shoes. It allows you to buy clothes and shoes online with payment gateway integration. you can add your favourite product or you can also search by using filters. There are diffrent type or variety of clothes and shoes available in this website. you just have to follow the steps and after some steps you will able to place your order and buy products which you are store in your cart. 
+Sports-K is a e-commerce website which offers sports based products like men's clothes and shoes and women's clothes and shoes. It allows you to buy clothes and shoes online with payment gateway integration. you can add your favourite product or you can also search by using filters. There are diffrent type or variety of clothes and shoes available in this website. you just have to follow the steps and after some steps you will able to place your order and buy products which you are store in your cart. 
 
 ## TECH STACK : HTML(1.3%),CSS(2.3%),JavaScript(96.4%).
 
