@@ -218,16 +218,16 @@ const FilterData = () => {
                 <FormLabel>Ascending</FormLabel>
                 <Radio
                   type="radio"
-                  value="asc"
-                  defaultChecked={sortBy === "asc"}
+                  value="ASC"
+                  defaultChecked={sortBy === "ASC"}
                 />
               </Flex>
               <Flex alignItems={"center"} justifyContent={"space-between"}>
                 <FormLabel>Descending</FormLabel>
                 <Radio
                   type="radio"
-                  value="desc"
-                  defaultChecked={sortBy === "desc"}
+                  value="DESC"
+                  defaultChecked={sortBy === "DESC"}
                 />
               </Flex>
             </Stack>

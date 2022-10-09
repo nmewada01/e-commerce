@@ -7,6 +7,8 @@ import {
   FormLabel,
   Heading,
   Input,
+  InputGroup,
+  InputRightElement,
   Link,
   Spinner,
   Stack,
@@ -19,7 +21,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
 import { login } from "../redux/AuthReducer/action";
 //import { LOGIN_S } from "../redux/AuthReducer/actionType";
- import Navbar from "../components/Navbar/Navbar";
+import Navbar from "../components/Navbar/Navbar";
+import { ViewIcon } from "@chakra-ui/icons";
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -29,7 +32,10 @@ const Login = () => {
   const toast = useToast();
   const loading = useSelector((store) => store.AuthReducer.isLoading);
   const pathRoute = location.state?.from?.pathname || "/";
-
+  const [eye, setEye] = useState(false);
+  const handleEye = () => {
+    setEye((prev) => !prev);
+  };
   const loginHandler = () => {
     if (username === "naresh11" && password === "naresh#111*") {
       const params = {
@@ -73,11 +79,18 @@ const Login = () => {
               </FormControl>
               <FormControl id="password" isRequired>
                 <FormLabel>Password</FormLabel>
-                <Input
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
+                <InputGroup>
+                  <Input
+                    type={eye ? "text" : "password"}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <InputRightElement h={"full"}>
+                    <Button variant={"ghost"} onClick={handleEye}>
+                      <ViewIcon />
+                    </Button>
+                  </InputRightElement>
+                </InputGroup>
               </FormControl>
               <Stack spacing={10}>
                 <Stack

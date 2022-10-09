@@ -13,7 +13,7 @@ import {
 import { ChevronDownIcon } from "@chakra-ui/icons";
 
 import React, { useEffect } from "react";
-import { GrLogin, GrLogout } from "react-icons/gr";
+import { GrLogout } from "react-icons/gr";
 //import { FiUser } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";

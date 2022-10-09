@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer,useState } from "react";
 import {
   Flex,
   Box,
@@ -66,7 +66,10 @@ const Signup = () => {
   const navigate = useNavigate();
   const toast = useToast();
   const loading = useSelector((store) => store.AuthReducer.isLoading);
-
+  const [eye, setEye] = useState(false);
+  const handleEye = () => {
+    setEye((prev) => !prev);
+  };
   const signupHandle = () => {
     const isEmpty = checkSignupForm(state);
     if (!isEmpty.status) {
@@ -163,15 +166,15 @@ const Signup = () => {
             <FormControl id="password" isRequired>
               <FormLabel>Password</FormLabel>
               <InputGroup>
-                type={"password"}
                 <Input
+                  type={eye ? "text" : "password"}
                   value={state.password}
                   onChange={(e) =>
                     setState({ type: "password", payload: e.target.value })
                   }
                 />
                 <InputRightElement h={"full"}>
-                  <Button variant={"ghost"}>
+                  <Button onClick={handleEye} variant={"ghost"}>
                     <ViewIcon />
                   </Button>
                 </InputRightElement>

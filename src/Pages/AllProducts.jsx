@@ -20,7 +20,6 @@ const AllProducts = () => {
   useEffect(() => {
     if (location.search || products?.length === 0) {
       const sortBy = searchParams.get("sortBy");
-      // const rating = searchParams.get("rating");
 
       const queryParams = {
         params: {

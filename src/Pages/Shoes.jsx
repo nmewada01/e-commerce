@@ -21,7 +21,6 @@ const AllshoesD = () => {
   useEffect(() => {
     if (location || shoesD?.length === 0) {
       const sortBy = searchParams.get("sortBy");
-      const rating = searchParams.get("rating");
 
       const queryParams = {
         params: {
@@ -29,8 +28,8 @@ const AllshoesD = () => {
           gender: searchParams.getAll("gender"),
           colortype: searchParams.getAll("colortype"),
           sizes: searchParams.getAll("sizes"),
-          _sort: (sortBy && "reviews") || (rating && "rating"),
-          _order: sortBy || rating,
+          _sort: sortBy && "rating",
+          _order: sortBy,
         },
       };
       dispatch(getShoesData(queryParams));
@@ -38,7 +37,7 @@ const AllshoesD = () => {
   }, [dispatch, location.search, shoesD?.length, searchParams]);
   return (
     <div className="AllsportsD">
-       <Navbar/> <br/>
+      <Navbar /> <br />
       {loading ? (
         <Loading />
       ) : (

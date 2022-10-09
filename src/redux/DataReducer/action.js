@@ -14,10 +14,7 @@ const getData = (params) => (dispatch) => {
 const updateData = (id, payload) => (dispatch) => {
   dispatch({ type: types.UPDATE_DATA_R });
   return axios
-    .patch(
-      `https://desktime-tanner-redux.herokuapp.com/allproducts/${id}`,
-      payload
-    )
+    .patch(`https://desktime-tanner-redux.herokuapp.com/allproducts/${id}`, payload)
     .then((res) => {
       dispatch({ type: types.UPDATE_DATA_S });
     })
