@@ -20,54 +20,12 @@ const AllRoutes = () => {
     <div>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route
-          path="/allproducts"
-          element={
-            <Authentication>
-              <AllProducts />
-            </Authentication>
-          }
-        />
-        <Route
-          path="/men"
-          element={
-            <Authentication>
-              <Men />
-            </Authentication>
-          }
-        />
-        <Route
-          path="/women"
-          element={
-            <Authentication>
-              <Women />
-            </Authentication>
-          }
-        />
-        <Route
-          path="/shoes"
-          element={
-            <Authentication>
-              <AllshoesD />
-            </Authentication>
-          }
-        />
-        <Route
-          path="/description/:id"
-          element={
-            <Authentication>
-              <DescriptionPage />
-            </Authentication>
-          }
-        />
-        <Route
-          path="/cart"
-          element={
-            <Authentication>
-              <Cart />
-            </Authentication>
-          }
-        />
+        <Route path="/allproducts" element={<AllProducts />} />
+        <Route path="/men" element={<Men />} />
+        <Route path="/women" element={<Women />} />
+        <Route path="/shoes" element={<AllshoesD />} />
+        <Route path="/description/:id" element={<DescriptionPage />} />
+        <Route path="/cart" element={<Cart />} />
         <Route
           path="/wishlist"
           element={

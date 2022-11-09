@@ -52,7 +52,6 @@ const Login = () => {
       };
       dispatch(login(params, toast)).then((res) => {
         navigate(pathRoute, { replace: true });
-        window.location.reload();
       });
     }
   };

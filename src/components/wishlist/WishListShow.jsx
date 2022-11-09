@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Image, Stack, Text } from "@chakra-ui/react";
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -25,26 +25,28 @@ const WishListShow = ({ item }) => {
   };
   return (
     <div>
-      <Button onClick={() => handleRemoveWishList(id)}  >
-        <CloseIcon color={'red'}  />
+      <Button onClick={() => handleRemoveWishList(id)}>
+        <CloseIcon color={"red"} />
       </Button>
-      <Box
-        onMouseEnter={hanldeWishhover}
-        onMouseLeave={handleWishLeave}
-        onClick={() => handleWish(id)}
-        border={price && "1px solid teal"}
-      >
-        <Image src={images[0]} alt={name} />
-        <Text fontWeight={"lightbold"}>{name}</Text>
-        {price && (
-          <Flex fontWeight={"bold"} justifyContent={"space-around"}>
-            <Text as={"s"} color={"red"}>
-              {original_price}
-            </Text>
-            <Text>{final_price}</Text>
-          </Flex>
-        )}
-      </Box>
+      <Stack h={['35vh','60vh','60vh']}>
+        <Box
+          onMouseEnter={hanldeWishhover}
+          onMouseLeave={handleWishLeave}
+          onClick={() => handleWish(id)}
+          border={price && "1px solid teal"}
+        >
+          <Image src={images[0]} alt={name} />
+          <Text fontWeight={"lightbold"}>{name}</Text>
+          {price && (
+            <Flex fontWeight={"bold"} justifyContent={"space-around"}>
+              <Text as={"s"} color={"red"}>
+                {original_price}
+              </Text>
+              <Text>{final_price}</Text>
+            </Flex>
+          )}
+        </Box>
+      </Stack>
     </div>
   );
 };
