@@ -34,7 +34,7 @@ const displayRazorpay = async (
     key: "rzp_test_GZ5gpKSKDoFi4K",
     amount: amount * 100,
     currency: "INR",
-    name: "Khamaliya",
+    name: "Sports-K",
     description: "Thank You for Purchase",
     image:
       "https://png.pngtree.com/png-vector/20210315/ourlarge/pngtree-k-logo-design-png-image_3055797.png",
