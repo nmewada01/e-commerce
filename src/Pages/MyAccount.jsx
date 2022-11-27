@@ -1,9 +1,10 @@
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text, Tooltip } from "@chakra-ui/react";
 import React from "react";
 import { useSelector } from "react-redux";
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 const MyAccount = () => {
   const profileData = useSelector((state) => state.AuthReducer?.profileData);
+  console.log(profileData)
   return (
     <div>
       <Box
@@ -27,22 +28,27 @@ const MyAccount = () => {
         >
           <Heading className="heading"> Follow Me : </Heading>
           <Flex justifyContent={"space-evenly"}>
-            <Box>
-              <Text>
-                Github
-                <a href="https://github.com/nmewada01" alt={"nmewada01"}>
-                  <AiFillGithub fontSize={"45px"} />
-                </a>
-              </Text>
-            </Box>
-            <Box>
-              <Text>
-                Linkedin :
-                <a href="https://github.com/nmewada01" alt={"nmewada01"}>
-                  <AiFillLinkedin fontSize={"50px"} />
-                </a>
-              </Text>
-            </Box>
+            <Tooltip label="Follow Me On Github" color="white">
+              <Box>
+                <Text>
+                  <a href="https://github.com/nmewada01" alt={"nmewada01"}>
+                    <AiFillGithub fontSize={"45px"} />
+                  </a>
+                </Text>
+              </Box>
+            </Tooltip>
+            <Tooltip label="Follow Me On Linkedin" color="white">
+              <Box>
+                <Text>
+                  <a
+                    href="https://www.linkedin.com/in/naresh-rajput/"
+                    alt={"Naresh Rajput"}
+                  >
+                    <AiFillLinkedin fontSize={"50px"} />
+                  </a>
+                </Text>
+              </Box>
+            </Tooltip>
           </Flex>
         </Flex>
         <Text fontSize={"30px"} color="white">

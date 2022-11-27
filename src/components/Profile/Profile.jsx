@@ -34,9 +34,9 @@ const Profile = ({ colorMode }) => {
   useEffect(() => {
     if (profileData?.length === 0) {
       const token = localStorage.getItem("token"); //different approaches for getting local storage
-      const username = getLocalData("userInfo");
+      const email = getLocalData("userInfo");
       const payload = {
-        username: username,
+        email: email,
         token,
       };
       dispatch(profile(payload));
