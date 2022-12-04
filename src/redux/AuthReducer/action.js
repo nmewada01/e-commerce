@@ -6,7 +6,7 @@ import * as types from "./actionType";
 const register = (payload, toast) => (dispatch) => {
   dispatch({ type: types.REGISTER_R });
   return axios
-    .post("https://nareshrajput-auth.onrender.com/auth/login", payload)
+    .post("https://nareshrajput-auth.onrender.com/auth/signup", payload)
     .then((r) => {
       console.log(r.data)
       setToast(toast, "Registered Successful", "success");
