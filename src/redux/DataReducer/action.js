@@ -3,7 +3,7 @@ import axios from "axios";
 const getData = (params) => (dispatch) => {
   dispatch({ type: types.GET_DATA_R });
   return axios
-    .get("https://desktime-tanner-redux.herokuapp.com/allproducts", params)
+    .get("https://sporksk-nareshrajput.onrender.com/allproducts", params)
     .then((res) => {
       dispatch({ type: types.GET_DATA_S, payload: res.data });
     })
@@ -14,7 +14,7 @@ const getData = (params) => (dispatch) => {
 const updateData = (id, payload) => (dispatch) => {
   dispatch({ type: types.UPDATE_DATA_R });
   return axios
-    .patch(`https://desktime-tanner-redux.herokuapp.com/allproducts/${id}`, payload)
+    .patch(`https://sporksk-nareshrajput.onrender.com/allproducts/${id}`, payload)
     .then((res) => {
       dispatch({ type: types.UPDATE_DATA_S });
     })
@@ -25,7 +25,7 @@ const updateData = (id, payload) => (dispatch) => {
 const deleteData = (id) => (dispatch) => {
   dispatch({ type: types.DELETE_DATA_R });
   return axios
-    .delete(`https://desktime-tanner-redux.herokuapp.com/allproducts/${id}`)
+    .delete(`https://sporksk-nareshrajput.onrender.com/allproducts/${id}`)
     .then((res) => {
       dispatch({ type: types.DELETE_DATA_S });
     })

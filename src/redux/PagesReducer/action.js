@@ -6,7 +6,7 @@ const getMensData = (params) => (dispatch) => {
 
   return axios
     .get(
-      "https://desktime-tanner-redux.herokuapp.com/allproducts?gender=MEN",
+      "https://sporksk-nareshrajput.onrender.com/allproducts?gender=MEN",
       params
     )
     .then((res) => {
@@ -22,7 +22,7 @@ const getWomensData = (params) => (dispatch) => {
 
   return axios
     .get(
-      "https://desktime-tanner-redux.herokuapp.com/allproducts?gender=WOMEN",
+      "https://sporksk-nareshrajput.onrender.com/allproducts?gender=WOMEN",
       params
     )
     .then((res) => {
@@ -35,7 +35,7 @@ const getWomensData = (params) => (dispatch) => {
 const getShoesData = (params) => (dispatch) => {
   dispatch({ type: types.GET_MENS_DATA_R });
   return axios
-    .get("https://desktime-tanner-redux.herokuapp.com/allproducts?category=shoes", params)
+    .get("https://sporksk-nareshrajput.onrender.com/allproducts?category=shoes", params)
     .then((res) => {
       dispatch({ type: types.GET_SHOES_DATA_S, payload: res.data });
     })
@@ -48,7 +48,7 @@ const getHomeData = () => (dispatch) => {
   dispatch({ type: types.GET_MENS_DATA_R });
 
   return axios
-    .get("https://desktime-tanner-redux.herokuapp.com/Homepage")
+    .get("https://sporksk-nareshrajput.onrender.com/Homepage")
     .then((res) => {
       dispatch({ type: types.GET_HOMEDATA_S, payload: res.data });
     })
