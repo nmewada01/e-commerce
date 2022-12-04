@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import FilterData from "../Filter/Filters/FilterData";
@@ -9,6 +9,7 @@ import { useMediaQuery } from "@chakra-ui/react";
 import Loading from "../components/Loading/Loading";
 import { useLocation, useSearchParams } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
+import Paginate from "../components/Paginatation/Paginate";
 //import FilterChecked from "../Filter/Filters/FilterChecked";
 const AllProducts = () => {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ const AllProducts = () => {
   const [searchParams] = useSearchParams();
   const location = useLocation();
   const [isLargerThan] = useMediaQuery("(min-width: 768px)");
+  const [currentPage, setCurrentPage] = useState(1);
   useEffect(() => {
     if (location.search || products?.length === 0) {
       const sortBy = searchParams.get("sortBy");
@@ -34,33 +36,47 @@ const AllProducts = () => {
       dispatch(getData(queryParams));
     }
   }, [dispatch, location.search, products?.length, searchParams]);
-
+  const postPerPage = 9;
+  const totalPosts = products.length;
+  const indexOfLastPost = currentPage * postPerPage;
+  const indexOfFirstPost = indexOfLastPost - postPerPage;
+  const filterPosts = products.slice(indexOfFirstPost, indexOfLastPost);
   return (
     <div className="AllProducts">
       <Navbar /> <br />
       {loading ? (
         <Loading />
       ) : (
-        <Flex flexDirection={isLargerThan ? "row" : "column"}>
-          <Box w={isLargerThan ? "15%" : "100%"}>
-            <FilterData />
-            {/* <FilterChecked/> */}
-          </Box>
-          <Spacer />
-          <Box width={isLargerThan ? "80%" : "100%"}>
-            <Grid
-              templateColumns={
-                isLargerThan ? "repeat(3, 1fr)" : "repeat(2, 1fr)"
-              }
-              gap={"5px"}
-            >
-              {products?.length > 0 &&
-                products.map((item) => {
-                  return <ProductDis key={item.key} item={item} />;
-                })}
-            </Grid>
-          </Box>
-        </Flex>
+        <>
+          <Flex flexDirection={isLargerThan ? "row" : "column"}>
+            <Box w={isLargerThan ? "15%" : "100%"}>
+              <FilterData />
+              {/* <FilterChecked/> */}
+            </Box>
+            <Spacer />
+            <Box width={isLargerThan ? "80%" : "100%"}>
+              <Grid
+                templateColumns={
+                  isLargerThan ? "repeat(3, 1fr)" : "repeat(2, 1fr)"
+                }
+                gap={"5px"}
+              >
+                {filterPosts?.length > 0 &&
+                  filterPosts.map((item) => {
+                    return <ProductDis key={item.key} item={item} />;
+                  })}
+              </Grid>
+            </Box>
+          </Flex>
+          {totalPosts > postPerPage && (
+            <Paginate
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              totalPosts={totalPosts}
+              postPerPage={postPerPage}
+            />
+          )}
+        </>
       )}
     </div>
   );

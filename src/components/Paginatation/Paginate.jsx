@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Flex, Box } from "@chakra-ui/react";
 const Paginate = ({ currentPage, setCurrentPage, totalPosts, postPerPage }) => {
   const totalPages = Math.ceil(totalPosts / postPerPage);
   let pages = [];
@@ -9,33 +9,46 @@ const Paginate = ({ currentPage, setCurrentPage, totalPosts, postPerPage }) => {
   }
 
   return (
-    <ul className="pagination">
-      <li className={`page-item ${currentPage === 1 && `disabled`}`}>
+    <Flex gap="1rem" my={"10"} justifyContent={"center"}>
+      <Box
+        border="1px solid white"
+        p={["0.2rem 0.5rem", "0.5rem 1rem", "0.5rem 1.5rem"]}
+        bg={"black"}
+        color={"white"}
+      >
         <button
-          className="page-link"
+          disabled={currentPage === 1}
           onClick={() => setCurrentPage(currentPage - 1)}
         >
           &laquo;
         </button>
-      </li>
+      </Box>
       {pages.map((page) => (
-        <li
+        <Box
+          border="1px solid white"
+          p={["0.2rem 0.5rem", "0.5rem 1rem", "0.5rem 1.5rem"]}
+          bg={"black"}
+          color={"white"}
           key={page}
-          className={`page-item ${page === currentPage && `active`}`}
           onClick={() => setCurrentPage(page)}
         >
-          <button className="page-link">{page}</button>
-        </li>
+          <button>{page}</button>
+        </Box>
       ))}
-      <li className={`page-item ${currentPage === totalPages && `disabled`}`}>
+      <Box
+        border="1px solid white"
+        p={["0.2rem 0.5rem", "0.5rem 1rem", "0.5rem 1.5rem"]}
+        bg={"black"}
+        color={"white"}
+      >
         <button
-          className="page-link"
+          disabled={currentPage === totalPages}
           onClick={() => setCurrentPage(currentPage + 1)}
         >
           &raquo;
         </button>
-      </li>
-    </ul>
+      </Box>
+    </Flex>
   );
 };
 
