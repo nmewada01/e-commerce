@@ -61,7 +61,7 @@ const Navbar = () => {
         justifyContent={"right"}
         gap="10px"
         alignItems={"center"}
-        bg={colorMode==="dark"?'none':'#ebecec'}
+        bg={colorMode === "dark" ? "none" : "#ebecec"}
       >
         {auth ? (
           <Box>
@@ -81,7 +81,10 @@ const Navbar = () => {
             Sign up
           </Button>
         )}
-       <Box mr={['5','6','7','9']}> <DarkModeBtn /></Box>
+        <Box mr={["5", "6", "7", "9"]}>
+          {" "}
+          <DarkModeBtn />
+        </Box>
       </Flex>
       <Flex fontWeight="bold">
         <HStack onClick={handleHome} cursor={"pointer"}>
@@ -215,7 +218,7 @@ const Navbar = () => {
               </Text>
             </Flex>
           </Box>
-          <Box> {!isLargerThan && <SideMenu />}</Box>
+          <Box> {!isLargerThan && <SideMenu colorMode={colorMode} />}</Box>
         </HStack>
       </Flex>
     </div>

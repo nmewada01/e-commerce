@@ -1,7 +1,6 @@
 import {
   Drawer,
   DrawerBody,
-  DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
@@ -9,7 +8,6 @@ import {
   useDisclosure,
   RadioGroup,
   Stack,
-  Radio,
   Button,
   Text,
 } from "@chakra-ui/react";
@@ -17,7 +15,7 @@ import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from "react-router-dom";
 
-export default function SideMenu() {
+export default function SideMenu({ colorMode }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [placement, setPlacement] = useState("right");
 
@@ -25,13 +23,13 @@ export default function SideMenu() {
     <>
       <RadioGroup defaultValue={placement} onChange={setPlacement}></RadioGroup>
       <Button colorScheme="blackAlpha" bg="none" color="black" onClick={onOpen}>
-        <GiHamburgerMenu />
+        <GiHamburgerMenu color={colorMode === "dark" ? "white" : "black"} />
       </Button>
       <Drawer placement={placement} onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader borderBottomWidth="1px">Menu </DrawerHeader>
+          <DrawerHeader borderBottomWidth="1px">Sports K</DrawerHeader>
           <DrawerBody>
             <Stack>
               <Link to="/">

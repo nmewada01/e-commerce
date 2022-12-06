@@ -108,7 +108,7 @@ const Profile = ({ colorMode }) => {
               <MdOutlineFavoriteBorder color={"red"} />
               Wishlist
             </MenuItem>
-            <MenuItem onClick={() => navigate("cart")}>
+            <MenuItem onClick={() => navigate("/cart")}>
               <BsCartCheck color={"blue"} />
               Cart
             </MenuItem>

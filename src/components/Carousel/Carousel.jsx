@@ -98,11 +98,16 @@ export default function Carousel() {
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
             backgroundSize="cover"
-           // backgroundImage="linear-gradient(teal,skyblue,royalblue)"
-           background='url(https://img.freepik.com/free-photo/front-view-cyber-monday-shopping-cart-with-bags-copy-space_23-2148657638.jpg?w=1380&t=st=1664900415~exp=1664901015~hmac=89c39369bd2b9d5caa08a3b57e7c2ff809dbaea870971c47018c09ddb72496b9) center/cover no-repeat'
+            // backgroundImage="linear-gradient(teal,skyblue,royalblue)"
+            background="url(https://img.freepik.com/free-photo/front-view-cyber-monday-shopping-cart-with-bags-copy-space_23-2148657638.jpg?w=1380&t=st=1664900415~exp=1664901015~hmac=89c39369bd2b9d5caa08a3b57e7c2ff809dbaea870971c47018c09ddb72496b9) center/cover no-repeat"
           >
             {/* This is the block if we need to change, to customize the caption */}
-            <Container size="container.lg" height="600px" m="auto" position="relative" >
+            <Container
+              size="container.lg"
+              height="600px"
+              m="auto"
+              position="relative"
+            >
               <Stack
                 spacing={6}
                 w={"full"}
@@ -114,12 +119,12 @@ export default function Carousel() {
                 <Heading fontSize={{ base: "2xl", md: "4xl", lg: "5xl" }}>
                   {card.title}
                 </Heading>
-                <Text fontSize={['sm', 'md', 'lg', 'xl']} color="">
+                <Text fontSize={["sm", "md", "lg", "xl"]} color="">
                   {card.text}
                 </Text>
                 <Flex gap={isLargerThan ? "2rem" : "1rem"} justify={"center"}>
                   <Button
-                   fontSize={['xs','sm', 'md', 'lg', 'xl']}
+                    fontSize={["xs", "sm", "md", "lg", "xl"]}
                     bg="black"
                     color="whitesmoke"
                     _hover={{
