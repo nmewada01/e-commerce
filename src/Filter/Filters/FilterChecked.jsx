@@ -26,7 +26,6 @@ const FilterChecked = () => {
     }
     setTheCategory(newCategory);
   };
-
   const handleGenderChange = (e) => {
     const typeOutput = e.target.value;
     let newGender = [...theGender];
@@ -37,7 +36,6 @@ const FilterChecked = () => {
     }
     setTheGender(newGender);
   };
-
   const handleColorTypeChange = (e) => {
     const typeOutput = e.target.value;
     let newColorType = [...theColorType];

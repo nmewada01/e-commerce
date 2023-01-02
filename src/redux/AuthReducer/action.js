@@ -8,7 +8,6 @@ const register = (payload, toast) => (dispatch) => {
   return axios
     .post("https://nareshrajput-auth.onrender.com/auth/signup", payload)
     .then((r) => {
-      console.log(r.data)
       setToast(toast, "Registered Successful", "success");
       dispatch({ type: types.REGISTER_S, payload: r.data });
     })
@@ -19,7 +18,6 @@ const register = (payload, toast) => (dispatch) => {
 };
 
 const login = (payload, toast) => (dispatch) => {
-  console.log(payload)
   saveLocalData("userInfo", payload.email)
   dispatch({ type: types.LOGIN_R });
   return axios

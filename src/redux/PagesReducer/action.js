@@ -6,7 +6,7 @@ const getMensData = (params) => (dispatch) => {
 
   return axios
     .get(
-      "https://nareshrajput-sportsk.up.railway.app/allproducts?gender=MEN",
+      `${process.env.REACT_APP_BASE_API}/allproducts?gender=MEN`,
       params
     )
     .then((res) => {
@@ -22,7 +22,7 @@ const getWomensData = (params) => (dispatch) => {
 
   return axios
     .get(
-      "https://nareshrajput-sportsk.up.railway.app/allproducts?gender=WOMEN",
+      `${process.env.REACT_APP_BASE_API}/allproducts?gender=WOMEN`,
       params
     )
     .then((res) => {
@@ -35,7 +35,7 @@ const getWomensData = (params) => (dispatch) => {
 const getShoesData = (params) => (dispatch) => {
   dispatch({ type: types.GET_MENS_DATA_R });
   return axios
-    .get("https://nareshrajput-sportsk.up.railway.app/allproducts?category=shoes", params)
+    .get(`${process.env.REACT_APP_BASE_API}/allproducts?category=shoes`, params)
     .then((res) => {
       dispatch({ type: types.GET_SHOES_DATA_S, payload: res.data });
     })
@@ -48,7 +48,7 @@ const getHomeData = () => (dispatch) => {
   dispatch({ type: types.GET_MENS_DATA_R });
 
   return axios
-    .get("https://nareshrajput-sportsk.up.railway.app/Homepage")
+    .get(`${process.env.REACT_APP_BASE_API}/Homepage`)
     .then((res) => {
       dispatch({ type: types.GET_HOMEDATA_S, payload: res.data });
     })
