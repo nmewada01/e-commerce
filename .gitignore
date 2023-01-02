@@ -24,3 +24,5 @@ yarn-error.log*
 
 .vercel
 .env
+db.json
+package-lock.json
