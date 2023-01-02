@@ -21,7 +21,7 @@ const FilterData = () => {
   const initialGenderParams = searchParams.getAll("gender");
   const initialColorTypeParams = searchParams.getAll("colortype");
   const initialSizesParams = searchParams.getAll("sizes");
-  const initialSortParams = searchParams.get("sortBy");
+  const initialSortParams = searchParams.getAll("sortBy");
   const [theCategory, setTheCategory] = useState(initialCategoryParams || []);
   const [theGender, setTheGender] = useState(initialGenderParams || []);
   const [theSizes, setTheSizes] = useState(initialSizesParams || []);
