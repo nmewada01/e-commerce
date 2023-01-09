@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 const MyAccount = () => {
   const profileData = useSelector((state) => state.AuthReducer?.profileData);
-  console.log(profileData)
   return (
     <div>
       <Box

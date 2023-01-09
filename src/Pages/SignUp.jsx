@@ -215,10 +215,12 @@ const Signup = () => {
               <Editable
                 color={"darkgrey"}
                 placeholder="Paste Link..."
-                align={"left"}
+                overflow={'hidden'}
+                align={"justify"}
               >
                 <EditablePreview />
                 <EditableTextarea
+
                   value={state.description}
                   onChange={(e) =>
                     setState({ type: "description", payload: e.target.value })
