@@ -43,7 +43,7 @@ const Login = () => {
         email,
         password,
       };
-      dispatch(login(params, toast)).then((res) => {
+      dispatch(login(params, toast)).then(() => {
         navigate("/admin", { replace: true });
       });
     } else if (email && password) {
@@ -52,7 +52,25 @@ const Login = () => {
         password,
       };
       dispatch(login(params, toast)).then((res) => {
-        navigate(pathRoute, { replace: true });
+        if (res.payload.msg === "login successfully") {
+          toast({
+            title: "Login Success",
+            description: "You are successfully logged in",
+            status: "success",
+            duration: 3000,
+            isClosable: true,
+            position: "top",
+          });
+          navigate(pathRoute, { replace: true });
+        } else {
+          toast({
+            title: res.payload.msg,
+            status: "error",
+            duration: 3000,
+            isClosable: true,
+            position: "top",
+          });
+        }
       });
     }
   };

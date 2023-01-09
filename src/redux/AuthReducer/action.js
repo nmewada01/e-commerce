@@ -6,10 +6,9 @@ import * as types from "./actionType";
 const register = (payload, toast) => (dispatch) => {
   dispatch({ type: types.REGISTER_R });
   return axios
-    .post("https://nareshrajput-auth.onrender.com/auth/signup", payload)
+    .post(`${process.env.REACT_APP_AUTHENTICATION}/auth/signup`, payload)
     .then((r) => {
-      setToast(toast, "Registered Successful", "success");
-      dispatch({ type: types.REGISTER_S, payload: r.data });
+      return dispatch({ type: types.REGISTER_S, payload: r.data });
     })
     .catch((e) => {
       setToast(toast, e.response.data.message, "error");
@@ -21,10 +20,9 @@ const login = (payload, toast) => (dispatch) => {
   saveLocalData("userInfo", payload.email)
   dispatch({ type: types.LOGIN_R });
   return axios
-    .post("https://nareshrajput-auth.onrender.com/auth/login", payload)
+    .post(`${process.env.REACT_APP_AUTHENTICATION}/auth/login`, payload)
     .then((r) => {
-      setToast(toast, "Login Successful", "success");
-      dispatch({ type: types.LOGIN_S, payload: r.data.token });
+      return dispatch({ type: types.LOGIN_S, payload: r.data });
     })
     .catch((e) => {
       setToast(toast, e.response.data.message, "error");
@@ -36,7 +34,7 @@ const profile = (payload) => (dispatch) => {
   dispatch({ type: types.PROFILE_R });
   const options = {
     method: "GET",
-    url: `https://nareshrajput-auth.onrender.com/auth/${payload.email}`,
+    url: `${process.env.REACT_APP_AUTHENTICATION}/auth/${payload.email}`,
     headers: { Authorization: `Bearer ${payload.token}` },
   };
   return axios(options)

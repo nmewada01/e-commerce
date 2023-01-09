@@ -10,7 +10,6 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
-  
   const { type, payload } = action;
   switch (type) {
     case types.REGISTER_R:
@@ -24,12 +23,12 @@ const reducer = (state = initialState, action) => {
     case types.LOGIN_R:
       return { ...state, isLoading: true, isError: false };
     case types.LOGIN_S:
-      saveLocalData("token", payload);
+      saveLocalData("token", payload.token);
       return {
         ...state,
         isLoading: false,
         isAuth: true,
-        token: payload,
+        token: payload.token,
       };
     case types.LOGIN_F:
       return {
